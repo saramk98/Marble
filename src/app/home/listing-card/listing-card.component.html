@@ -1,0 +1,61 @@
+<ion-card class="elevate-on-hover" [routerLink]="['/productdetail']" style="height:94%;">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="12" size-lg="12">
+        <img style="width: 100%" alt="Silhouette of mountains" [src]="imageSrc" />
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      
+          <ion-col size="12" size-md="12" size-lg="9">
+          <!-- <div class="row" style="display: flex; justify-content: space-between"> -->
+            <ion-card-title>{{ text }}</ion-card-title>
+          </ion-col>
+          <ion-col size-lg="3">
+            
+              <ion-icon name="star" color="warning"></ion-icon>
+              <span>{{ rating }}(87)</span>
+            </ion-col>
+         
+          
+        
+      
+    </ion-row>
+    <ion-row style="padding-left:5px;">
+      <ion-card-subtitle>
+        <ion-icon name="location-sharp"></ion-icon>
+        Jeddah, Mecca
+      </ion-card-subtitle>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4" size-md="4" size-lg="5">
+          <ion-card-content style="color: red; font-size: large; display: flex; justify-content: center;">
+            $ {{ price }}
+          </ion-card-content>
+        </ion-col>
+        <ion-col size="4" size-md="4" size-lg="2">
+          <button class="disc-button">5%</button>
+        </ion-col> 
+        <ion-col size="4" size-md="4" size-lg="5"> 
+          <ion-card-content style="font-size: large; text-decoration: line-through; max-height: 20%; display: flex; justify-content: center;">
+            $ {{ price }}
+          </ion-card-content>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" size-lg="12">
+        <div class="purchase-button-container">
+          <ion-card-content>
+            <button class="purch-button">
+              <ion-icon name="bag-remove" style="margin-top: 2px; max-width: 100%;"></ion-icon>
+              Purchase Now
+            </button>
+          </ion-card-content>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-card>

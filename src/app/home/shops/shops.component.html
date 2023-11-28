@@ -1,0 +1,29 @@
+<ion-content class="gray-background" style="background-color: #eef0f2">
+  <app-navbar></app-navbar>
+  <div style="text-align: center">
+    <h1 style="font-weight: bold">Shops</h1>
+  </div>
+  <ion-grid style="background-color: #eef0f2">
+    <ion-row>        
+      
+      <ion-col size="2">
+        
+      </ion-col>
+      <ion-col size="8" >
+        <ion-grid>
+          <ion-row>
+            <ion-col size-lg="6" *ngFor="let shop of shops">
+              <app-shop-list [text]="shop.name" [imageSrc]="shop.logo">
+              </app-shop-list>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </ion-col>
+      <ion-col size="2"> </ion-col>
+    </ion-row>
+    <br><br>  
+  </ion-grid>
+  
+  <app-footer></app-footer>
+</ion-content>

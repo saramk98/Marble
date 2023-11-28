@@ -1,0 +1,38 @@
+.purch-button {
+    color: white;
+    background-color: red;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    width: 100%;
+    // visibility: hidden;
+  }
+  .sub-button {
+    color: white;
+    background-color: red;
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    // visibility: hidden;
+  }
+  .disc-button{
+    color: #9A9FA5;
+    background-color: #EFEFEF;
+    padding: 8px;
+    height:fit-content;
+    margin-top: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    
+}  
+.cover-image {
+  object-fit: cover; /* Ensure the image covers the entire container */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Gallery Image Styles */
+.gallery-image {
+  object-fit: cover; /* Ensure the images cover the entire container */
+  margin: 0 auto; /* Center the images horizontally */
+  margin-top: 10px; /* Add some top margin to separate gallery images */
+}

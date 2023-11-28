@@ -1,0 +1,67 @@
+<ion-content class="gray-background" style="background-color: #eef0f2">
+  <app-navbar></app-navbar>
+  <div style="text-align: center;">
+    <h1 style="font-weight: bold;">Shop Detail</h1>
+  </div>
+  <br>
+  <ion-grid >
+    <ion-row>
+      <ion-col size="1">
+        
+      </ion-col>
+      <ion-col size="12" size-md="5">
+        <ion-row style="display: flex; justify-content: center;">
+          
+          <img style="width:70%;margin-top:10px;" alt="Silhouette of mountains" src="https://www.peta.com.cy/media-cache/fit-768x350/post-images/7000-new-distributor_orig.jpg" />
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="4">
+        <h2>Al Zamins Sons Trading</h2>
+        <div>
+          <p>
+          <ion-icon name="location-sharp"></ion-icon>
+          Abdul Rahman A. Al Zamil Sons Trading Co.P.O. Box 2833, Dammam 31461 Kingdom of Saudi Arabia
+        </p>
+        </div>
+        <div>
+          <p>
+            <ion-icon name="call"></ion-icon>
+          +966-03-8336577
+        </p>
+        </div>
+        <div>
+          <a href="www.arzamil.com">
+            <ion-icon name="link"></ion-icon>
+            www.arzamil.com
+        </a>
+        </div>
+      </ion-col>  
+    </ion-row>
+    <br>
+  </ion-grid >
+  <ion-grid style="background-color: #eef0f2">
+    <ion-row>        
+      
+      <ion-col size="2">
+        
+      </ion-col>
+      <ion-col size="8" >
+        <ion-grid>
+          <ion-row style="display: flex; justify-content: center;">
+            <h2>Products</h2>
+          </ion-row>
+          <ion-row>
+            <ion-col size-lg="4" *ngFor="let product of products.slice(0, 3)">
+              <app-listing-card [text]="product.name" [imageSrc]="product.images[0]" [price]="product.price" [rating]="product.rating"></app-listing-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </ion-col>
+      <ion-col size="2"> </ion-col>
+    </ion-row>
+    <br><br>  
+  </ion-grid>
+  
+  <app-footer></app-footer>
+</ion-content>

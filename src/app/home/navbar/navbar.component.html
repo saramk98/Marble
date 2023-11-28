@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="light" style="height: 35px;display: flex; align-items: center;">
+    <ion-buttons slot="end" style="padding-right: 40px;">
+      <button style="margin-right: 22px;color: #9A9FA5;background-color: transparent;" [routerLink]="['/home']">
+        Home
+      </button>
+
+      <button style="margin-right: 22px;color: #9A9FA5;background-color: transparent;" [routerLink]="['/products']">
+        Products
+      </button>
+
+      <button style="margin-right: 22px;color: #9A9FA5;background-color: transparent;" [routerLink]="['/categories']">
+        Categories
+      </button>
+      <button style="color: #9A9FA5;background-color: transparent;" [routerLink]="['/shops']">
+        Shops
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+        <img src="../../assets/images/quarry.png" alt="Logo" width="70" [routerLink]="['/home']">
+    <ion-buttons slot="end" style="padding-right: 20px">
+      <!-- <div class="row" style="border: 1px solid #DCDCDC; border-radius: 30px;margin-right: 20px;padding-left: 6px;padding-right: 6px;padding-top: 3px;padding-bottom: 3px;">
+        <ion-icon name="chatbox-ellipses-outline" style="padding: 3px;margin-right: 10px;margin-left: 10px;height: 25px;width: 25px;"></ion-icon>
+        <ion-icon name="bag-handle-outline" style="padding: 2px;margin-right: 10px;height: 25px;width: 25px;"></ion-icon>
+        <ion-icon name="notifications-outline" style="padding: 2px;margin-right: 10px;height: 25px;width: 25px;"></ion-icon>
+        <ion-icon name="musical-notes-outline" style="padding: 2px;margin-right: 10px;height: 25px;width: 25px;"></ion-icon>
+      </div> -->
+      <ion-button >
+        <ion-icon name="person-circle-sharp" size="large"></ion-icon>
+         <!-- <p style="margin-left: 5px;">John Doe</p> -->
+      </ion-button>
+      
+      <!-- <button shape="round" style="background-color: black;color: white;border-radius: 20px;padding: 15px;">Become Merchant</button> -->
+      <!-- <app-dropdown-nav>
+        
+      </app-dropdown-nav> -->
+    </ion-buttons>
+  </ion-toolbar>
+  <div style="background-color: red; display: flex; justify-content: center; flex-direction: row;">
+    <ion-searchbar style="max-width: 30%;" show-clear-button="always" placeholder="Search"></ion-searchbar>
+</div>
+</ion-header>

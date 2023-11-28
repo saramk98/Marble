@@ -1,0 +1,343 @@
+<ion-content class="gray-background" style="background-color: #eef0f2">
+  <app-navbar></app-navbar>
+  <ion-content
+    class="ion-text-center"
+    style="max-height: 20%; display: flex; align-items: center;margin-top:-10px;"
+  >
+    <br />
+    <h1 style="font-weight: bold">Products</h1>
+    <button class="custom-border-button" [class.active]="isButtonActive" (click)="filterProducts('Marble','',0)">Marble</button>
+  <button class="custom-border-button" [class.active]="isButtonActive" style="margin-left: 10px;" (click)="filterProducts('Stone','',0)">Stone</button>
+  <button class="custom-border-button" [class.active]="isButtonActive" style="margin-left: 10px;" (click)="filterProducts('Granite','',0)">Granite</button>
+  </ion-content>
+  <ng-template #content let-offcanvas>
+    <div class="offcanvas-header">
+      <h4 class="offcanvas-title" id="offcanvas-basic-title"></h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
+    </div>
+    <div class="offcanvas-body">
+      <!-- <ion-card> -->
+        <ion-row justify-content-between>
+          <ion-col size="12" size-md="7" size-lg="8" style="display: flex; align-items: center;">
+            <ion-card-content style="color: black; font-size: large; font-weight: bold; display: flex; align-items: center;">
+              Filter
+            </ion-card-content>
+          </ion-col>
+          <!-- <ion-col size="0" size-md="2" size-lg="2" > </ion-col> -->
+          <ion-col size="12" size-md="5" size-lg="4"  style="display: flex; align-items: center;">
+            <!-- Adjust the size as needed -->
+            <!-- Content aligned to the right (e.g., Reset button) -->
+            <button
+            class="custom-border-button"
+              style="width: 100%"
+              (click)="filterProducts('','',0)"
+            >
+              Reset
+            </button>
+          </ion-col>
+        </ion-row>
+        <hr style="background-color: rgb(199, 197, 197)" />
+  
+        <ion-row justify-content-between>
+          <ion-col size="12" size-md="7" size-lg="8">
+            <!-- Adjust the size as needed -->
+            <ion-card-content style="color: black;font-size: large; font-weight: bold"
+              >Price</ion-card-content
+            >
+            <!-- Content aligned to the left (e.g., Filter title) -->
+          </ion-col>
+          
+          <ion-col size="12" size-md="5" size-lg="4" style="display: flex; align-items: center;">
+            <button class="custom-border-button2" style="width: 100%" (click)="toggleProgress()">
+              {{ hideProgress ? 'Show' : 'Hide' }}
+              <ion-icon slot="end" [name]="hideProgress ? 'chevron-down-outline' : 'chevron-up-outline'" style="margin-top: -5px"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <div style="padding-left: 25px; padding-right: 30px" *ngIf="!hideProgress">
+          <input max="5000" type="range" style="width: 100%;" [(ngModel)]="selectedRange" (input)="filterProducts('','',selectedRange)">
+          <!-- <ion-range aria-label="Volume"></ion-range> -->
+          <!-- <p>Selected. ${{selectedRange}}</p> -->
+          <div style="display: flex; justify-content: space-between;">
+            <p>Min. $0</p>
+            <p>Max. ${{selectedRange}}</p>
+          </div>
+        </div>
+        <hr style="background-color: rgb(199, 197, 197)" />
+        <ion-row justify-content-between>
+          <ion-col size="12" size-md="7" size-lg="8">
+            <!-- Adjust the size as needed -->
+            <ion-card-content style="color: black;font-size: large; font-weight: bold"
+              >City</ion-card-content
+            >
+            <!-- Content aligned to the left (e.g., Filter title) -->
+          </ion-col>
+         
+          <ion-col size="12" size-md="5" size-lg="4" style="display: flex; align-items: center;">
+            <button class="custom-border-button2" style="width: 100%" (click)="toggleCheckboxes()">
+              {{ hideCheckboxes ? 'Show' : 'Hide' }}
+              <ion-icon slot="end" [name]="hideCheckboxes ? 'chevron-down-outline' : 'chevron-up-outline'" style="margin-top: -5px"></ion-icon>
+            </button>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="1" size-md="1" size-lg="1">
+          </ion-col>  
+          <ion-col size="12" size-md="5" size-lg="6">
+            <div style="" *ngIf="!hideCheckboxes">
+              <ion-checkbox labelPlacement="end" (click)="filterProducts('','Jeddah',0)">Jeddah</ion-checkbox>
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px" (click)="filterProducts('','Mecca',0)" 
+                >Mecca</ion-checkbox
+              >
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+            </div>
+            <button style="background-color: transparent;color: #465A7E;font-size: 15px;padding: 15px;margin-left: 10px;"
+              >See All</button
+            >
+          </ion-col>
+        </ion-row>  
+        <hr style="background-color: rgb(199, 197, 197);" />
+        <ion-row justify-content-between>
+          <ion-col size="12" size-md="7" size-lg="8">
+            <!-- Adjust the size as needed -->
+            <ion-card-content style="color: black;font-size: large; font-weight: bold"
+              >Shipping Options</ion-card-content
+            >
+            <!-- Content aligned to the left (e.g., Filter title) -->
+          </ion-col>
+          <!-- <ion-col size="1">
+  
+          </ion-col> -->
+          <ion-col size="12" size-md="5" size-lg="4" style="display: flex; align-items: center;">
+            <button class="custom-border-button2" style="width: 100%" (click)="toggleCheckboxes2()">
+              {{ hideCheckboxes2 ? 'Show' : 'Hide' }}
+              <ion-icon slot="end" [name]="hideCheckboxes2 ? 'chevron-down-outline' : 'chevron-up-outline'" style="margin-top: -5px"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="1" size-md="1" size-lg="1">
+          </ion-col>  
+          <ion-col size="12" size-md="5" size-lg="6">
+            <div *ngIf="!hideCheckboxes2">
+              <ion-checkbox labelPlacement="end">Checkbox</ion-checkbox>
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+              <br />
+              <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                >Checkbox</ion-checkbox
+              >
+            </div>
+            <button style="background-color: transparent;color: #465A7E;font-size: 15px;padding: 15px;margin-left: 10px;"
+              >See All</button
+            >
+          </ion-col>
+        </ion-row>
+      <!-- </ion-card> -->
+    </div>
+  </ng-template>
+  <ion-grid style="background-color: #eef0f2">
+    <ion-icon name="filter-outline" *ngIf="isMobile" (click)="open(content)" [class.disabled]="!isMobile"></ion-icon>
+    <ion-row>
+      <ion-col size="0" size-md="1" size-lg="1"> </ion-col>
+      <ion-col size="12" size-md="4" size-lg="3" style="position: sticky; left: 0; top: 0;"  class="ion-hide-md-down">
+        <ion-card>
+          <ion-row justify-content-between>
+            <ion-col size="12" size-md="7" size-lg="8" style="display: flex; align-items: center;">
+              <ion-card-content style="color: black; font-size: large; font-weight: bold; display: flex; align-items: center;">
+                Filter
+              </ion-card-content>
+            </ion-col>
+            <!-- <ion-col size="0" size-md="2" size-lg="2" > </ion-col> -->
+            <ion-col size="12" size-md="5" size-lg="4"  style="display: flex; align-items: center;">
+              <!-- Adjust the size as needed -->
+              <!-- Content aligned to the right (e.g., Reset button) -->
+              <button
+              class="custom-border-button"
+                style="width: 100%"
+                (click)="filterProducts('','',0)"
+              >
+                Reset
+              </button>
+            </ion-col>
+          </ion-row>
+          <hr style="background-color: rgb(199, 197, 197)" />
+
+          <ion-row justify-content-between>
+            <ion-col size="12" size-md="7" size-lg="8">
+              <!-- Adjust the size as needed -->
+              <ion-card-content style="color: black;font-size: large; font-weight: bold"
+                >Price</ion-card-content
+              >
+              <!-- Content aligned to the left (e.g., Filter title) -->
+            </ion-col>
+            
+            <ion-col size="12" size-md="5" size-lg="4" style="display: flex; align-items: center;">
+              <button class="custom-border-button2" style="width: 100%" (click)="toggleProgress()">
+                {{ hideProgress ? 'Show' : 'Hide' }}
+                <ion-icon slot="end" [name]="hideProgress ? 'chevron-down-outline' : 'chevron-up-outline'" style="margin-top: -5px"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+          <div style="padding-left: 25px; padding-right: 30px" *ngIf="!hideProgress">
+            <input max="200" type="range" style="width: 100%;" [(ngModel)]="selectedRange" (input)="filterProducts('','',selectedRange)">
+            <div style="display: flex; justify-content: space-between;">
+              <p>Min. $0</p>
+              <p>Max. ${{selectedRange}}</p>
+            </div>
+          </div>
+          <hr style="background-color: rgb(199, 197, 197)" />
+          <ion-row justify-content-between>
+            <ion-col size="12" size-md="7" size-lg="8">
+              <!-- Adjust the size as needed -->
+              <ion-card-content style="color: black;font-size: large; font-weight: bold"
+                >City</ion-card-content
+              >
+              <!-- Content aligned to the left (e.g., Filter title) -->
+            </ion-col>
+           
+            <ion-col size="12" size-md="5" size-lg="4" style="display: flex; align-items: center;">
+              <button class="custom-border-button2" style="width: 100%" (click)="toggleCheckboxes()">
+                {{ hideCheckboxes ? 'Show' : 'Hide' }}
+                <ion-icon slot="end" [name]="hideCheckboxes ? 'chevron-down-outline' : 'chevron-up-outline'" style="margin-top: -5px"></ion-icon>
+              </button>
+              
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1" size-md="1" size-lg="1">
+            </ion-col>  
+            <ion-col size="12" size-md="5" size-lg="6">
+              <div style="" *ngIf="!hideCheckboxes">
+                <ion-checkbox labelPlacement="end" (click)="filterProducts('','Jeddah',0)">Jeddah</ion-checkbox>
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px" (click)="filterProducts('','Mecca',0)" 
+                  >Mecca</ion-checkbox
+                >
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+              </div>
+              <button style="background-color: transparent;color: #465A7E;font-size: 15px;padding: 15px;margin-left: 10px;"
+                >See All</button
+              >
+            </ion-col>
+          </ion-row>  
+          <hr style="background-color: rgb(199, 197, 197);" />
+          <ion-row justify-content-between>
+            <ion-col size="12" size-md="7" size-lg="8">
+              <!-- Adjust the size as needed -->
+              <ion-card-content style="color: black;font-size: large; font-weight: bold"
+                >Shipping Options</ion-card-content
+              >
+              <!-- Content aligned to the left (e.g., Filter title) -->
+            </ion-col>
+            <!-- <ion-col size="1">
+
+            </ion-col> -->
+            <ion-col size="12" size-md="5" size-lg="4" style="display: flex; align-items: center;">
+              <button class="custom-border-button2" style="width: 100%" (click)="toggleCheckboxes2()">
+                {{ hideCheckboxes2 ? 'Show' : 'Hide' }}
+                <ion-icon slot="end" [name]="hideCheckboxes2 ? 'chevron-down-outline' : 'chevron-up-outline'" style="margin-top: -5px"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="1" size-md="1" size-lg="1">
+            </ion-col>  
+            <ion-col size="12" size-md="5" size-lg="6">
+              <div *ngIf="!hideCheckboxes2">
+                <ion-checkbox labelPlacement="end">Checkbox</ion-checkbox>
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+                <br />
+                <ion-checkbox labelPlacement="end" style="padding-top: 5px"
+                  >Checkbox</ion-checkbox
+                >
+              </div>
+              <button style="background-color: transparent;color: #465A7E;font-size: 15px;padding: 15px;margin-left: 10px;"
+                >See All</button
+              >
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </ion-col>
+      <!-- right card -->
+      <ion-col size="12" size-md="7" size-lg="8" style="overflow-y: auto; height: 120vh;">
+        <ion-row justify-content-between>
+          <ion-col size="12" size-md="6" size-lg="4">
+            <h3 style="padding-left: 10px; color: gray">
+              Found items on search
+            </h3>
+          </ion-col>
+          <ion-col size="1" size-md="1" size-lg="5"></ion-col>
+          <ion-col style="display: flex;align-items: center;">
+            <button
+            class="custom-border-button3"
+              style="width: 50%"
+            >
+              Reviews
+              <ion-icon
+                slot="end"
+                name="chevron-down-outline"
+                
+              ></ion-icon>
+            </button>
+            
+          </ion-col>
+        </ion-row>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" size-md="6" size-lg="4" *ngFor="let product of filteredProducts">
+              <app-listing-card [text]="product.name" [imageSrc]="product.images[0]" [price]="product.price" [rating]="product.rating"></app-listing-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>

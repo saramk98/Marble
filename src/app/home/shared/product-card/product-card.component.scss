@@ -1,0 +1,79 @@
+.responsive-card {
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .avatar-col {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar img {
+    max-width: 50px;
+    max-height: 50px;
+  }
+  
+  .info-col {
+    margin-top: 10px;
+  }
+  
+  .company-name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .location {
+    margin-top: 8px;
+  }
+  
+  .star-button {
+    margin-top: 10px;
+    background-color: #ffbb00;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: bold;
+  }
+  
+  .image-grid {
+    margin-top: 15px;
+  }
+  
+  .image-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-col {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  ion-img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .responsive-card {
+      padding: 20px;
+    }
+  
+    .company-name {
+      font-size: 24px;
+    }
+  
+    .star-button {
+      padding: 8px 12px;
+    }
+  }
+  

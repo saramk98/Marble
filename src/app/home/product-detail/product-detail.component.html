@@ -1,0 +1,302 @@
+<!-- 
+<ion-content class="gray-background" style="background-color: #eef0f2">
+  <app-navbar></app-navbar>
+  <div style="text-align: center;">
+    <h1 style="font-weight: bold;">Product Detail</h1>
+</div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        
+      </ion-col>
+      <ion-col size="8">
+        <ion-card class="elevate-on-hover">
+          <img
+  style="width: 40%; display: block; margin: 0 auto;"
+  alt="Silhouette of mountains"
+  src="https://admin.aptools.sa/uploads/images/products/Marble.jpg"
+/>
+          <ion-card-header>
+            <div class="row" style="display: flex; justify-content: space-between">
+              <ion-card-title>Tyrolit Diamond Blade For Marble</ion-card-title>
+              <div>
+              <ion-icon name="star" color="warning" style="margin-left: 8px"></ion-icon>
+              <span>4.7(87)</span>
+            </div>
+            </div>
+            <ion-card-subtitle>
+              <ion-icon name="location-sharp"></ion-icon>
+              Jeddah, Mecca
+            </ion-card-subtitle>
+          </ion-card-header>
+          <div class="row" style="display: flex;">
+            <ion-card-content style="color: red; font-size: large">
+              $99.00
+            </ion-card-content>
+            <button class="disc-button">5%</button>
+            <ion-card-content
+              style="font-size: large; text-decoration: line-through; max-height: 20%"
+            >
+              $99.00
+            </ion-card-content>
+            <ion-card-content> 
+              
+            </ion-card-content>
+          </div>
+          <div style="padding:5px 15px;color:black">
+          <h2>Details</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+          <div class="purchase-button-container">
+            <ion-card-content style="display: flex; justify-content: center;">
+              <button class="purch-button">
+                <ion-icon name="bag-remove" style="margin-top: 2px;"></ion-icon>
+                Purchase Now
+              </button>
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+  
+</ion-content> -->
+<ion-content class="gray-background" style="background-color: #eef0f2">
+  <app-navbar></app-navbar>
+  <div style="text-align: center;">
+    <h1 style="font-weight: bold;">Product Detail</h1>
+  </div>
+  <ion-grid >
+    <ion-row>
+      <ion-col size="1">
+        
+      </ion-col>
+      <ion-col size="12" size-md="5" class="ion-text-center">
+        <ion-row class="ion-align-items-center" style="margin-top:35px">
+          <img
+        [src]="coverImageSrc"
+        class="cover-image"
+        alt="Product Image"
+        style="width:60%"
+        />
+        </ion-row>
+      
+        <!-- Image Gallery -->
+        <br>
+        <ion-row class="ion-align-items-center">
+          <ion-col size="3" class="ion-text-center" *ngFor="let galleryImage of galleryImages">
+            <ion-card>
+              <img
+                style="width:50%"
+                [src]="galleryImage"
+                class="gallery-image"
+                alt="Gallery Image"
+                (click)="changeCoverImage(galleryImage)"
+                />
+            </ion-card>
+          </ion-col>
+         
+        </ion-row>
+      </ion-col>
+      <ion-col size="12" size-md="5">
+        
+        <ion-card style="margin-right:25px;margin-left:25px;margin-top:15px">
+          <ion-card-header>
+            <div class="row" style="display: flex; justify-content-between">
+              <ion-card-title>Tyrolit Diamond Blade For Marble</ion-card-title>
+              
+            </div>
+            <ion-card-subtitle>
+              <ion-icon name="location-sharp"></ion-icon>
+              Jeddah, Mecca
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-row>
+            <ion-col size="4" size-md="4" size-lg="2">
+                <ion-card-content style="color: red; font-size: large; display: flex; justify-content: center;">
+                  $ 90
+                </ion-card-content>
+              </ion-col>
+              <ion-col size="4" size-md="4" size-lg="2">
+                <button class="disc-button">5%</button>
+              </ion-col> 
+              <ion-col size="4" size-md="4" size-lg="2"> 
+                <ion-card-content style="font-size: large; text-decoration: line-through; max-height: 20%; display: flex; justify-content: center;margin-left: -50px;">
+                  $ 90
+                </ion-card-content>
+              </ion-col>
+          </ion-row>
+          
+          <!-- <div class="row" style="display: flex;">
+            <ion-card-content style="color: red; font-size: large">
+              $99.00
+            </ion-card-content>
+            <button class="disc-button">5%</button>
+            <ion-card-content
+              style="font-size: large; text-decoration: line-through; max-height: 20%"
+            >
+              $99.00
+            </ion-card-content>
+            <ion-card-content> 
+            </ion-card-content>
+          </div> -->
+          <div class="row" style="display: flex;padding: 5px 15px;">
+            <!-- <ion-icon name="star" color="warning" style="margin-left: 8px"></ion-icon>
+            <span>4.7(87)</span> -->
+            <app-star-rating [rating]="4.7"></app-star-rating>
+            <span>&ensp;5 (87)</span>
+          </div>
+          <div style="padding: 0px 15px; color: black;">
+            <h2>Details</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </div>
+          <div class="row" style="display:flex;padding-left:15px;">
+            <div>
+            <h5>QTY</h5>
+            </div>
+            <div class="quantity-control" style="padding: 3px 15px; align-items: center; justify-content: center;">
+              <ion-button (click)="decrementQuantity()" style="marginBottom:15px">
+                <ion-icon name="remove-outline" ></ion-icon>
+              </ion-button>
+              
+              <!-- <button (click)="decrementQuantity()">-</button> -->
+              <input type="number" [(ngModel)]="quantity" min="1" style="max-width: 20%;height:30px;paddingTop: 0px;">
+              <ion-button (click)="incrementQuantity()" style="marginBottom:15px">
+                <ion-icon name="add-outline" ></ion-icon>
+              </ion-button>
+              <!-- <button (click)="incrementQuantity()">+</button> -->
+            </div>
+          </div>
+          <div class="purchase-button-container">
+            <ion-card-content style="display: flex; justify-content: center;">
+              <button class="purch-button">
+                <ion-icon name="bag-remove" style="margin-top: 2px;"></ion-icon>
+                Purchase Now
+              </button>
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1">
+        
+      </ion-col>
+      <ion-col size="10" size-md="10" size-lg="10">
+        <h3>Reviews</h3>
+        <ion-row>
+          <ion-col size="6">
+            <ion-card style="padding: 0px 15px;">
+              <h4>Ahmed</h4>
+              <app-star-rating [rating]="4.7"></app-star-rating>
+              <p>Very good product. Must try!</p>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card style="padding: 0px 15px;">
+              <h4>Ahmed</h4>
+              <app-star-rating [rating]="4.7"></app-star-rating>
+              <p>Very good product. Must try!</p>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card style="padding: 0px 15px;">
+              <h4>Ahmed</h4>
+              <app-star-rating [rating]="4.7"></app-star-rating>
+              <p>Very good product. Must try!</p>
+            </ion-card>
+          </ion-col>
+          <ion-col size="6">
+            <ion-card style="padding: 0px 15px;">
+              <h4>Ahmed</h4>
+              <app-star-rating [rating]="4.7"></app-star-rating>
+              <p>Very good product. Must try!</p>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+            <ion-col size="8">
+              
+            </ion-col>
+            <ion-col size="4">
+              <app-pagination
+              (pageChange)="onPageChange($event)"
+            [currentPage]="currentPage"
+            [totalPages]="totalPages"
+          ></app-pagination>
+            </ion-col>
+          </ion-row>
+          <!-- <ion-row>
+            <ion-col>
+              <ul>
+                <li>
+                  {{data?.title}}
+                </li>
+              </ul>
+            </ion-col>
+          </ion-row> -->
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="1">
+        
+      </ion-col>
+      <ion-col>
+        <h3>Review Product</h3>
+        <h4>Rating :</h4>
+        <ion-row justify-content-center>
+          <ion-col size-lg="2">
+            
+          </ion-col>
+          <ion-col *ngFor="let star of stars; let i = index" (click)="rateProduct(i + 1)">
+            <ion-icon name="star" [color]="i < selectedStars ? 'warning' : 'medium'"></ion-icon>
+          </ion-col>
+          <ion-col size-lg="7">
+            
+          </ion-col>
+        </ion-row>
+        <h4>Write Review :</h4>
+        <ion-row>
+          <ion-col size-lg="8">
+            <ion-item style="background-color:#F8F8F9">
+              <!-- <ion-label position="floating" style="background-color:#F8F8F9">Your Review</ion-label> -->
+              <ion-textarea rows="6" [(ngModel)]="reviewText" style="background-color:#F8F8F9"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button class="sub-button" style="margin-left:15px">
+              Submit
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row style="max-height:5%">
+      <ion-col size="0" size-md="1" size-lg="1">
+        
+      </ion-col>
+      <ion-col size="12" size-md="10" size-lg="10">
+        <h3>Related Products</h3>
+        <ion-row>
+          <ion-col size="6" size-md="6" size-lg="3" *ngFor="let product of products.slice(0, 4)">
+            <app-listing-card [text]="product.name" [imageSrc]="product.images[0]" [price]="product.price" [rating]="product.rating"></app-listing-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer></app-footer>
+</ion-content>

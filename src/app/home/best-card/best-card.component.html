@@ -1,0 +1,14 @@
+<ion-row style="display: flex; align-items: center;height:100%" [routerLink]="['/productdetail']">
+  <ion-col size="3">
+    <ion-avatar>
+      <img
+        alt="Silhouette of a person's head"
+        [src]="imageSrc"
+      />
+    </ion-avatar>
+  </ion-col>
+  <ion-col>
+    <h6>{{text}}</h6>
+    <p style="color: red;">{{price}}</p>
+  </ion-col>
+</ion-row>

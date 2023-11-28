@@ -1,0 +1,36 @@
+.elevate-on-hover:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(1.10);
+    transition: box-shadow 0.3s, transform 0.3s;
+  }
+
+.disc-button{
+    color: #9A9FA5;
+    background-color: #EFEFEF;
+    padding: 8px;
+    height:fit-content;
+    margin-top: 8px;
+    border-radius: 5px;
+    font-size: 15px;
+    
+}  
+.purch-button {
+  color: white;
+  background-color: red;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 15px;
+  width: 100%;
+  // visibility: hidden;
+}
+.show-content {
+  display: flex;
+}
+.purchase-button-container {
+  display: none;
+}
+
+ion-card.elevate-on-hover:hover .purchase-button-container {
+  display: block;
+}
+

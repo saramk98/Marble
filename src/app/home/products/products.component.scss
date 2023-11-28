@@ -1,0 +1,65 @@
+.custom-border-button {
+    border: 1px solid #DCDCDC;
+    background-color: transparent;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+  .custom-border-button2 {
+    border: 1px solid #DCDCDC;
+    background-color: transparent;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 10px 15px;
+  }
+  .custom-border-button3 {
+    // border: 1px solid #DCDCDC;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 8px 3px;
+  }
+  
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: red;
+    border-radius: 5px;
+    // cursor: pointer;
+    // width: 15rem;
+  }
+  
+  input[type="range"]::-webkit-slider-runnable-track {
+    background: rgb(255, 81, 81);
+    height: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -4px; /* Centers thumb on the track */
+    background-color: red;
+    height: 1rem;
+    width: 1rem;    
+    border-radius: 20px;
+  }
+  .custom-border-button:active {
+    background-color: #FF5733; /* Change this to the desired color */
+    color: #ffffff; /* Change this to the desired text color */
+    border: 1px solid #DCDCDC;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+
+  ion-checkbox {
+    --size: 20px;
+    --checkbox-background-checked: red;
+  }
+  
+  ion-checkbox::part(container) {
+    border-radius: 6px;
+    border: 1px solid #848484;
+  }
